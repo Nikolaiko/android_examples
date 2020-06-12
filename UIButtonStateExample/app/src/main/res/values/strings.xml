@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UIButtonStateExample</string>
+
+    <string name="firstButton">Первая</string>
+    <string name="secondButton">Вторая</string>
+    <string name="manipulate">Управляющая</string>
+</resources>
