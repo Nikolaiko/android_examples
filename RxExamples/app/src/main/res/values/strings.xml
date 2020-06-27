@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RxExamples</string>
+
+    <string name="perform_async_button_title">Perform Async Operation</string>
+    <string name="imperative_code_button_title">Пример без Rx</string>
+    <string name="basic_example_button_title">Базовый пример с Rx</string>
+    <string name="operators_example_button_title">Примеры операторов</string>
+
+
+
+    <string name="observable_1_squence_title">Последовательность первого источника</string>
+    <string name="observable_2_squence_title">Последовательность второго источника</string>
+    <string name="observer_result_title">Результат в наблюдателе</string>
+</resources>

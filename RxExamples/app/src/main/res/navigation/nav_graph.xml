@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/mainSelectionFragment">
+
+    <fragment
+        android:id="@+id/mainSelectionFragment"
+        android:name="com.nikolai.rxjavabyexample.MainSelectionFragment"
+        android:label="MainSelectionFragment" >
+        <action
+            android:id="@+id/action_mainSelectionFragment_to_imperativeCodeFragment"
+            app:destination="@id/imperativeCodeFragment" />
+        <action
+            android:id="@+id/action_mainSelectionFragment_to_simpleSourceExampleFragment"
+            app:destination="@id/simpleSourceExampleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imperativeCodeFragment"
+        android:name="com.nikolai.rxjavabyexample.basic.fragments.ImperativeCodeFragment"
+        android:label="ImperativeCodeFragment" />
+    <fragment
+        android:id="@+id/simpleSourceExampleFragment"
+        android:name="com.nikolai.rxjavabyexample.basic.fragments.SimpleSourceExampleFragment"
+        android:label="SimpleSourceExampleFragment" />
+</navigation>
