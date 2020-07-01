@@ -1,8 +1,7 @@
 package com.app.shelter.core.model
 
-data class Pet(
+data class PetOwner(
     val id: Int,
     val name: String,
-    val type: PetType,
-    val owner: PetOwner
+    val pets: List<Pet>
 )
