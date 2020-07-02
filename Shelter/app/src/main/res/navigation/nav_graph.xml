@@ -6,5 +6,13 @@
     <fragment
         android:id="@+id/petsListFragment"
         android:name="com.app.shelter.petsList.views.PetsListFragment"
-        android:label="PetsListFragment" />
+        android:label="PetsListFragment" >
+        <action
+            android:id="@+id/action_petsListFragment_to_detailedListFragment"
+            app:destination="@id/detailedListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailedListFragment"
+        android:name="com.app.shelter.detailedList.views.DetailedListFragment"
+        android:label="DetailedListFragment" />
 </navigation>

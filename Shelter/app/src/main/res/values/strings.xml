@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Shelter</string>
+
     <string name="pet_name_placeholder_text">Pet Name</string>
     <string name="pet_type_placeholder_text">Pet Type</string>
+
+    <string name="back_button_title">Back to List</string>
 </resources>

@@ -1,5 +1,7 @@
 package com.app.shelter.petsList.presenters
 
+import com.app.shelter.petsList.model.ListFragmentDestinations
+import com.app.shelter.petsList.model.ListFragmentNews
 import com.app.shelter.petsList.model.ListFragmentState
 import com.app.shelter.petsList.reducers.PetsListLogic
 import com.app.shelter.petsList.views.PetsListView
@@ -24,6 +26,12 @@ class PetsListPresenter @Inject constructor(
                 parseState(it)
             }.addTo(disposeBag)
 
+        reducer.screenNews
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe {
+                parseNews(it)
+            }.addTo(disposeBag)
+
         reducer.refreshData()
     }
 
@@ -32,8 +40,21 @@ class PetsListPresenter @Inject constructor(
         disposeBag.clear()
     }
 
+    override fun petRowClicked(rowId: Int) {
+        reducer.petRowSelected(rowId)
+    }
+
+    private fun parseNews(news: ListFragmentNews) {
+        if (news.destination != ListFragmentDestinations.NONE) {
+            view?.navigateTo(news.destination, news.data)
+        }
+
+        if (news.errorMessage.isNotEmpty()) {
+            view?.displayErrorMessage(news.errorMessage)
+        }
+    }
+
     private fun parseState(newState: ListFragmentState) {
-        println("parse")
         view?.setLoadingIndicator(newState.isLoading)
         view?.updatePetsList(newState.list)
     }

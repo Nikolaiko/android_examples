@@ -1,29 +1,26 @@
 package com.app.shelter.petsList.views
 
-import android.animation.LayoutTransition
-import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.shelter.R
 import com.app.shelter.ShelterApp
-import com.app.shelter.petsList.di.PETS_LIST_SCOPE_NAME
+import com.app.shelter.core.const.PET_ID_PARAMETER_NAME
 import com.app.shelter.petsList.di.PetsListModule
+import com.app.shelter.petsList.model.ListFragmentDestinations
 import com.app.shelter.petsList.model.PetShortData
 import com.app.shelter.petsList.presenters.PetsListPresentation
 import com.app.shelter.petsList.views.elements.PetsListAdapter
 import com.app.shelter.storage.di.DataStorageModule
 import kotlinx.android.synthetic.main.fragment_pets_list.*
-import kotlinx.coroutines.GlobalScope
 import toothpick.Scope
-import toothpick.Toothpick
 import toothpick.ktp.KTP
-import java.io.Serializable
 import javax.inject.Inject
 
 class PetsListFragment : Fragment(), PetsListView {
@@ -56,7 +53,9 @@ class PetsListFragment : Fragment(), PetsListView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = PetsListAdapter()
+        adapter = PetsListAdapter {
+            petsPresenter.petRowClicked(it)
+        }
         petsListView.layoutManager = LinearLayoutManager(context)
         petsListView.setAdapter(adapter)
 
@@ -86,5 +85,28 @@ class PetsListFragment : Fragment(), PetsListView {
             adapter?.updateList(pets)
             adapter?.notifyDataSetChanged()
         }
+    }
+
+    override fun navigateTo(destination: ListFragmentDestinations, data: Any?) {
+        when(destination) {
+            ListFragmentDestinations.DETAILED_LIST -> {
+                val paramsBundle = Bundle()
+                if (data != null) {
+                    paramsBundle.putInt(PET_ID_PARAMETER_NAME, data as Int)
+                }
+
+                NavHostFragment
+                    .findNavController(this)
+                    .navigate(R.id.action_petsListFragment_to_detailedListFragment, paramsBundle)
+            }
+            else -> {
+                //Timber
+            }
+        }
+    }
+
+    override fun displayErrorMessage(message: String) {
+        //Timber
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }

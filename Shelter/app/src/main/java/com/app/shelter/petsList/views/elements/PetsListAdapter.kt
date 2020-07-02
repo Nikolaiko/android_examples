@@ -5,9 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.shelter.R
+import com.app.shelter.petsList.PetRowClickCallback
 import com.app.shelter.petsList.model.PetShortData
 
-class PetsListAdapter : RecyclerView.Adapter<PetsListViewHolder>() {
+class PetsListAdapter(
+    private val rowClickCallback: PetRowClickCallback
+) : RecyclerView.Adapter<PetsListViewHolder>() {
     private var pets: List<PetShortData> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PetsListViewHolder {
@@ -20,6 +23,9 @@ class PetsListAdapter : RecyclerView.Adapter<PetsListViewHolder>() {
     override fun onBindViewHolder(holder: PetsListViewHolder, position: Int) {
         holder.typeTextView.text = pets[position].type.name
         holder.nameTextView.text = pets[position].name
+        holder.parentLayout.setOnClickListener {
+            rowClickCallback(pets[position].id)
+        }
     }
 
     fun updateList(newList: List<PetShortData>) {
