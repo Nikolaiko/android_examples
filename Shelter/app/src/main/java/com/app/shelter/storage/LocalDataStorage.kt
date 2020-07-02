@@ -44,8 +44,19 @@ class LocalDataStorage @Inject constructor(
         }
     }
 
+    override suspend fun getPetById(id: Int): PetEntity {
+        return database.petDao().getById(id).first()
+    }
+
+    override suspend fun getOwnerById(id: Int): OwnerEntity {
+        return database.ownerDao().getById(id).first()
+    }
 
     override suspend fun getShortDataList(): List<PetEntityShortData> {
         return database.petDao().getShortData()
+    }
+
+    override suspend fun getOwnerPetsList(ownerId: Int): List<PetEntity> {
+        return database.petDao().getAllOwnerPets(ownerId)
     }
 }

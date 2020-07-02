@@ -45,8 +45,8 @@ class PetsListFragment : Fragment(), PetsListView {
         scope = convertedApp.getRootScope()
             scope
                 ?.openSubScope(this)
-                ?.installModules(PetsListModule())
-                ?.installModules(DataStorageModule(lifecycleScope))
+                ?.installModules(PetsListModule(lifecycleScope))
+                ?.installModules(DataStorageModule())
                 ?.inject(this)
     }
 
@@ -57,7 +57,11 @@ class PetsListFragment : Fragment(), PetsListView {
             petsPresenter.petRowClicked(it)
         }
         petsListView.layoutManager = LinearLayoutManager(context)
-        petsListView.setAdapter(adapter)
+        petsListView.adapter = adapter
+
+        refreshButton.setOnClickListener {
+            petsPresenter.refresh()
+        }
 
         petsPresenter.bind(this)
     }
@@ -78,6 +82,7 @@ class PetsListFragment : Fragment(), PetsListView {
         } else {
             progressBar.visibility = View.INVISIBLE
         }
+        refreshButton.isEnabled = !isLoading
     }
 
     override fun updatePetsList(pets: List<PetShortData>) {

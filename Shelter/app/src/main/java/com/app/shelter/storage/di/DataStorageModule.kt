@@ -7,11 +7,8 @@ import toothpick.config.Module
 import toothpick.ktp.binding.bind
 import javax.inject.Inject
 
-class DataStorageModule constructor(
-    scope: CoroutineScope
-) : Module() {
+class DataStorageModule : Module() {
     init {
-        bind<CoroutineScope>().toInstance(scope)
         bind<DataStorage>().toClass<LocalDataStorage>().singleton()
     }
 }

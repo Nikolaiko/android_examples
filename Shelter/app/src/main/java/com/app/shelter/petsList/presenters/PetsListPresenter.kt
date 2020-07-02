@@ -40,6 +40,10 @@ class PetsListPresenter @Inject constructor(
         disposeBag.clear()
     }
 
+    override fun refresh() {
+        reducer.refreshData()
+    }
+
     override fun petRowClicked(rowId: Int) {
         reducer.petRowSelected(rowId)
     }
