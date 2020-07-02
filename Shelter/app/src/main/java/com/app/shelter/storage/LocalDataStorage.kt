@@ -8,6 +8,7 @@ import com.app.shelter.storage.room.DATABASE_NAME
 import com.app.shelter.storage.room.database.ShelterRoomDatabase
 import com.app.shelter.storage.room.entitys.OwnerEntity
 import com.app.shelter.storage.room.entitys.PetEntity
+import com.app.shelter.storage.room.migrations.Migration_1_2
 import kotlinx.coroutines.*
 import javax.inject.Inject
 
@@ -19,7 +20,8 @@ class LocalDataStorage @Inject constructor(
         appContext,
         ShelterRoomDatabase::class.java,
         DATABASE_NAME
-    ).build()
+    ).addMigrations(Migration_1_2())
+        .build()
 
     override suspend fun prePopulateIfNeeded() {
         val petsDao = database.petDao()
@@ -27,8 +29,8 @@ class LocalDataStorage @Inject constructor(
 
         val allPets = petsDao.getAll()
         if (allPets.isEmpty()) {
-            val owner1 = OwnerEntity(name = "Bruce Willis")
-            val owner2 = OwnerEntity(name = "Madonna")
+            val owner1 = OwnerEntity(name = "Bruce", lastName = "Willis")
+            val owner2 = OwnerEntity(name = "Madonna", lastName = "Petrovna")
             ownersDao.insertAll(owner1, owner2)
 
             val allOwners = ownersDao.getAll()

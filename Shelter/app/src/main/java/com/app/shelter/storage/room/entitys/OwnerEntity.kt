@@ -3,6 +3,8 @@ package com.app.shelter.storage.room.entitys
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.app.shelter.storage.room.NOT_SET
+import com.app.shelter.storage.room.OWNER_LAST_NAME_FIELD
 import com.app.shelter.storage.room.OWNER_NAME_FIELD
 import com.app.shelter.storage.room.OWNER_TABLE_NAME
 
@@ -13,5 +15,8 @@ data class OwnerEntity(
     val id: Int? = null,
 
     @ColumnInfo(name = OWNER_NAME_FIELD)
-    val name: String
+    val name: String,
+
+    @ColumnInfo(name = OWNER_LAST_NAME_FIELD)
+    val lastName: String
 )

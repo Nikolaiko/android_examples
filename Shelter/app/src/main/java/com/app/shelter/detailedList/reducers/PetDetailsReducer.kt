@@ -67,6 +67,7 @@ class PetDetailsReducer @Inject constructor(
                 val ownerData = PetOwner(
                     ownedEntity.id ?: -1,
                     ownedEntity.name,
+                    ownedEntity.lastName,
                     ownerPets
                 )
                 DetailedScreenState(

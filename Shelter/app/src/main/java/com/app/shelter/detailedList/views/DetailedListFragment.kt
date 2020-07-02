@@ -103,6 +103,7 @@ class DetailedListFragment : Fragment(), DetailedView {
         petTypeText.text = pet.type.name
 
         ownerNameText.text = owner.name
+        ownerLastNameText.text = owner.lastName
         petsCountText.text = owner.pets.size.toString()
     }
 }

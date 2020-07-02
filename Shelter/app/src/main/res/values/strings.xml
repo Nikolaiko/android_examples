@@ -4,6 +4,7 @@
     <string name="pet_name_placeholder_text">Pet Name</string>
     <string name="pet_type_placeholder_text">Pet Type</string>
     <string name="owner_name_placeholder_text">Owner Name</string>
+    <string name="owner_last_name_placeholder_text">Owner Last Name</string>
     <string name="pets_count_placeholder_text">Owner Pets Count</string>
 
     <string name="back_button_title">Back to List</string>
