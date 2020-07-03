@@ -8,8 +8,7 @@ import com.app.shelter.storage.room.DATABASE_NAME
 import com.app.shelter.storage.room.database.ShelterRoomDatabase
 import com.app.shelter.storage.room.entitys.OwnerEntity
 import com.app.shelter.storage.room.entitys.PetEntity
-import com.app.shelter.storage.room.migrations.Migration_1_2
-import kotlinx.coroutines.*
+import com.app.shelter.storage.room.migrations.MigrationFrom1To2
 import javax.inject.Inject
 
 class LocalDataStorage @Inject constructor(
@@ -20,7 +19,7 @@ class LocalDataStorage @Inject constructor(
         appContext,
         ShelterRoomDatabase::class.java,
         DATABASE_NAME
-    ).addMigrations(Migration_1_2())
+    ).addMigrations(MigrationFrom1To2())
         .build()
 
     override suspend fun prePopulateIfNeeded() {
