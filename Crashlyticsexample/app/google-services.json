@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "526503762533",
+    "firebase_url": "https://crashlyticsexample-nikolai.firebaseio.com",
+    "project_id": "crashlyticsexample-nikolai",
+    "storage_bucket": "crashlyticsexample-nikolai.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526503762533:android:0804a82f06e69d4b49448c",
+        "android_client_info": {
+          "package_name": "com.android.examples.crashlyticsexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "526503762533-vavp70d3c1tf6ngn980gnffg4jal5ggs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLD7Q0ZoryYjxB2IxmyXUxsBnwjtwzn6k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "526503762533-vavp70d3c1tf6ngn980gnffg4jal5ggs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

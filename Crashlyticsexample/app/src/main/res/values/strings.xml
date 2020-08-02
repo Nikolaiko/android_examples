@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Crashlyticsexample</string>
+    <string name="simple_exception_button_name">Generate simple exception</string>
+    <string name="simple_handled_exception_button_name">Generate handled exception</string>
+    <string name="simple_exception_text">Test Exception!</string>
+    <string name="simple_handled_exception_text">Test Handled Exception!</string>
+</resources>
