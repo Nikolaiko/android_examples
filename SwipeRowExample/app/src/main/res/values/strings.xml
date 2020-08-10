@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SwipeRowExample</string>
+    <string name="temp_name_value">Temp Value</string>
+</resources>
