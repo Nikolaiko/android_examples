@@ -7,3 +7,5 @@ val users = listOf(
     User("Second", "User"),
     User("Last", "User")
 )
+
+typealias DeleteCallback = (Int)->Unit

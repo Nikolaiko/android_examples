@@ -11,23 +11,34 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private var adapter = SwipeAdapter()
-    private val callBack = SwipeCallback()
+    private var usersList = users
+    private var callBack: SwipeCallback? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        callBack = SwipeCallback {
+            val mutableUsers = ArrayList(usersList)
+            mutableUsers.removeAt(it)
+            usersList = mutableUsers.toList()
+
+            adapter.usersList = usersList
+            adapter.notifyItemRemoved(it)
+            adapter.notifyItemRangeChanged(it, adapter.itemCount)
+        }
+
         table.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(applicationContext)
         table.adapter = adapter
 
-        adapter.usersList = users
+        adapter.usersList = usersList
 
-        val helper = ItemTouchHelper(callBack)
+        val helper = ItemTouchHelper(callBack!!)
         helper.attachToRecyclerView(table)
 
         table.addItemDecoration(object : RecyclerView.ItemDecoration() {
             override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
-                callBack.onDraw(c)
+                callBack?.onDraw(c)
             }
         })
     }

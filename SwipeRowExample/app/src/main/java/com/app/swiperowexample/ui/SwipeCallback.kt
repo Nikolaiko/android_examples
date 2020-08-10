@@ -9,9 +9,12 @@ import android.view.View
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ItemTouchHelper.ACTION_STATE_SWIPE
 import androidx.recyclerview.widget.RecyclerView
+import com.app.swiperowexample.DeleteCallback
 
 
-class SwipeCallback() : ItemTouchHelper.Callback() {
+class SwipeCallback(
+    private val callback: DeleteCallback
+) : ItemTouchHelper.Callback() {
     companion object {
         private const val BUTTON_WIDTH = 200
     }
@@ -80,7 +83,7 @@ class SwipeCallback() : ItemTouchHelper.Callback() {
         layoutDirection: Int
     ): Int {
         if (swipeBack) {
-            swipeBack = false
+            swipeBack = showedButtonState != SwipeButtonState.GONE
             return 0
         }
         return super.convertToAbsoluteDirection(flags, layoutDirection)
@@ -145,8 +148,10 @@ class SwipeCallback() : ItemTouchHelper.Callback() {
                     false
                 }
                 setItemsClickable(recyclerView, true)
-                println("Setting to false")
                 swipeBack = false
+                if (buttonRect?.contains(p1.x, p1.y) == true) {
+                    callback(viewHolder.adapterPosition)
+                }
                 showedButtonState = SwipeButtonState.GONE
             }
             false
@@ -167,15 +172,6 @@ class SwipeCallback() : ItemTouchHelper.Callback() {
         val corners = 16f
         val itemView: View = viewHolder.itemView
         val p = Paint()
-        val leftButton = RectF(
-            itemView.left.toFloat(),
-            itemView.top.toFloat(),
-            itemView.left + buttonWidthWithoutPadding,
-            itemView.bottom.toFloat()
-        )
-        p.color = Color.BLUE
-        c.drawRoundRect(leftButton, corners, corners, p)
-        drawText("EDIT", c, leftButton, p)
         val rightButton = RectF(
             itemView.right - buttonWidthWithoutPadding,
             itemView.top.toFloat(),
@@ -197,7 +193,7 @@ class SwipeCallback() : ItemTouchHelper.Callback() {
         button: RectF,
         p: Paint
     ) {
-        val textSize = 60f
+        val textSize = 30f
         p.color = Color.WHITE
         p.isAntiAlias = true
         p.textSize = textSize
