@@ -5,6 +5,6 @@
 
     <fragment
         android:id="@+id/basicOperationsFragment"
-        android:name="com.example.fagments.BasicOperationsFragment"
+        android:name="com.example.fagments.ReadOperationsFragment"
         android:label="BasicOperationsFragment" />
 </navigation>

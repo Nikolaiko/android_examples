@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">opencv</string>
+    <string name="dummy_description">Description</string>
+
+    <string name="just_read_button_label">Read Unchanged</string>
+    <string name="color_read_button_label">Read Colored</string>
+    <string name="grayscale_read_button_label">Read Grayscale</string>
+
+    <string name="type_label">Mat type :</string>
+    <string name="rows_label">Rows :</string>
+    <string name="cols_label">Cols :</string>
+    <string name="channels_label">Channels count :</string>
 </resources>

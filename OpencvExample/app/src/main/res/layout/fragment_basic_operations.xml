@@ -10,8 +10,9 @@
         android:id="@+id/sourceImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/dummy_description"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -20,8 +21,9 @@
         android:id="@+id/processedImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/dummy_description"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintHeight_percent="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sourceImageView"
         tools:srcCompat="@tools:sample/avatars" />
@@ -30,8 +32,119 @@
         android:id="@+id/justReadButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:layout_marginTop="8dp"
+        android:text="@string/just_read_button_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/processedImageView" />
+
+    <Button
+        android:id="@+id/readColorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/color_read_button_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/justReadButton" />
+
+    <Button
+        android:id="@+id/readGrayScale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/grayscale_read_button_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/readColorButton" />
+
+    <TextView
+        android:id="@+id/channelCountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/channels_label"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/colsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/cols_label"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/channelCountLabel"
+        app:layout_constraintStart_toStartOf="@+id/channelCountLabel" />
+
+    <TextView
+        android:id="@+id/rowsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/rows_label"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/colsLabel"
+        app:layout_constraintStart_toStartOf="@+id/channelCountLabel" />
+
+    <TextView
+        android:id="@+id/typeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/type_label"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rowsLabel"
+        app:layout_constraintStart_toStartOf="@+id/channelCountLabel" />
+
+    <TextView
+        android:id="@+id/typeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/typeLabel"
+        app:layout_constraintTop_toTopOf="@+id/typeLabel"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/rowValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/rowsLabel"
+        app:layout_constraintTop_toTopOf="@+id/rowsLabel"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/colsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/colsLabel"
+        app:layout_constraintTop_toTopOf="@+id/colsLabel"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/channelsValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/channelCountLabel"
+        app:layout_constraintTop_toTopOf="@+id/channelCountLabel"
+        tools:text="0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
