@@ -2,6 +2,9 @@
     <string name="app_name">opencv</string>
     <string name="dummy_description">Description</string>
 
+    <string name="read_operations_button_label">Read Operations</string>
+    <string name="modif_operations_button_label">Modification Operations</string>
+
     <string name="just_read_button_label">Read Unchanged</string>
     <string name="color_read_button_label">Read Colored</string>
     <string name="grayscale_read_button_label">Read Grayscale</string>

@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
-    app:startDestination="@id/basicOperationsFragment">
+    app:startDestination="@id/mainListFragment">
 
     <fragment
         android:id="@+id/basicOperationsFragment"
         android:name="com.example.fagments.ReadOperationsFragment"
         android:label="BasicOperationsFragment" />
+    <fragment
+        android:id="@+id/mainListFragment"
+        android:name="com.example.fagments.MainListFragment"
+        android:label="MainListFragment" >
+        <action
+            android:id="@+id/action_mainListFragment_to_basicOperationsFragment"
+            app:destination="@id/basicOperationsFragment" />
+        <action
+            android:id="@+id/action_mainListFragment_to_modificationsFragment"
+            app:destination="@id/modificationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/modificationsFragment"
+        android:name="com.example.fagments.ModificationsFragment"
+        android:label="ModificationsFragment" />
 </navigation>
