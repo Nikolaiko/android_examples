@@ -29,5 +29,9 @@ class MainListFragment : Fragment() {
         modificationsButton.setOnClickListener {
             findNavController().navigate(R.id.action_mainListFragment_to_modificationsFragment)
         }
+
+        skinTestButton.setOnClickListener {
+            findNavController().navigate(R.id.action_mainListFragment_to_skinTestFragment)
+        }
     }
 }

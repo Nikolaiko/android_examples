@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">ExoPlayerExample</string>
+    <string name="raw_button_title">Raw resource</string>
+    <string name="assets_button_title">Assets resource</string>
+    <string name="stop_button_title">Stop</string>
+</resources>

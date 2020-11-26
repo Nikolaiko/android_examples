@@ -17,9 +17,16 @@
         <action
             android:id="@+id/action_mainListFragment_to_modificationsFragment"
             app:destination="@id/modificationsFragment" />
+        <action
+            android:id="@+id/action_mainListFragment_to_skinTestFragment"
+            app:destination="@id/skinTestFragment" />
     </fragment>
     <fragment
         android:id="@+id/modificationsFragment"
         android:name="com.example.fagments.ModificationsFragment"
         android:label="ModificationsFragment" />
+    <fragment
+        android:id="@+id/skinTestFragment"
+        android:name="com.example.fagments.SkinTestFragment"
+        android:label="SkinTestFragment" />
 </navigation>
