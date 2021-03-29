@@ -1,4 +1,4 @@
-package com.nikolai.mvpexample.simpleMVP
+package com.nikolai.mvpexample.simpleMVP.passive
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.nikolai.mvpexample.R
 
-class SimpleMVPFragment : Fragment() {
+class SimpleMVPPassiveFragment : Fragment() {
     private val presenter: SimpleMVPPresenter = SimpleMVPPresenter()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -46,5 +47,17 @@ class SimpleMVPFragment : Fragment() {
         view?.findViewById<Button>(R.id.startAction)?.isEnabled = true
         view?.findViewById<Button>(R.id.backFromSimpleMVP)?.isEnabled = true
         view?.findViewById<ProgressBar>(R.id.progressBar)?.visibility = View.INVISIBLE
+    }
+
+    fun setFirstName(name: String) {
+        view?.findViewById<TextView>(R.id.nameText)?.text = name
+    }
+
+    fun setLastName(name: String) {
+        view?.findViewById<TextView>(R.id.lastNameText)?.text = name
+    }
+
+    fun setDate(dateString: String) {
+        view?.findViewById<TextView>(R.id.dateText)?.text = dateString
     }
 }

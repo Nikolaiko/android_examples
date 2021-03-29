@@ -6,14 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.nikolai.mvpexample.R
-import com.nikolai.mvpexample.simpleMVP.SimpleMVPPresenter
-import moxy.MvpFragment
+import moxy.MvpAppCompatFragment
 import moxy.presenter.InjectPresenter
 
-class MoxyFragment : MvpFragment(), MyMoxyView {
+class MoxyFragment : MvpAppCompatFragment(), MyMoxyPassiveView {
 
     @InjectPresenter
     lateinit var presenter: MoxyPresenter

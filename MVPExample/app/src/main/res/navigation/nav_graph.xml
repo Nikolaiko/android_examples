@@ -10,9 +10,23 @@
         <action
             android:id="@+id/action_mainFragment_to_simpleMVPFragment"
             app:destination="@id/simpleMVPFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_moxyFragment"
+            app:destination="@id/moxyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_simpleMVPSuperviserFragment"
+            app:destination="@id/simpleMVPSuperviserFragment" />
     </fragment>
     <fragment
         android:id="@+id/simpleMVPFragment"
-        android:name="com.nikolai.mvpexample.simpleMVP.SimpleMVPFragment"
+        android:name="com.nikolai.mvpexample.simpleMVP.passive.SimpleMVPPassiveFragment"
         android:label="SimpleMVPFragment" />
+    <fragment
+        android:id="@+id/moxyFragment"
+        android:name="com.nikolai.mvpexample.moxyMVP.MoxyFragment"
+        android:label="MoxyFragment" />
+    <fragment
+        android:id="@+id/simpleMVPSuperviserFragment"
+        android:name="com.nikolai.mvpexample.simpleMVP.superviser.SimpleMVPSuperviseFragment"
+        android:label="SimpleMVPSuperviserFragment" />
 </navigation>

@@ -1,12 +1,21 @@
 package com.nikolai.mvpexample.model
 
 import android.os.Handler
+import java.util.*
 
 class SomeActions(
-    private var callback: (()-> Unit)
+    private var callback: ((ResponseData)-> Unit)
 ) {
 
     fun someAction() {
-        Handler().postDelayed(callback, 2000)
+        Handler().postDelayed({
+            callback(
+                ResponseData(
+                    "Kiber",
+                    "Guy",
+                    Date()
+                )
+            )
+        }, 2000)
     }
 }

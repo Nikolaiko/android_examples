@@ -1,13 +1,14 @@
 package com.nikolai.mvpexample.moxyMVP
 
+import com.nikolai.mvpexample.model.ResponseData
 import com.nikolai.mvpexample.model.SomeActions
 import moxy.MvpPresenter
 
-class MoxyPresenter: MvpPresenter<MyMoxyView>() {
+class MoxyPresenter: MvpPresenter<MyMoxyPassiveView>() {
     private val repository = SomeActions(::actionCallback)
 
-    init {
-        println("PREASENTER CREATED")
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
     }
 
     fun startAction() {
@@ -15,7 +16,7 @@ class MoxyPresenter: MvpPresenter<MyMoxyView>() {
         repository.someAction()
     }
 
-    private fun actionCallback() {
+    private fun actionCallback(data: ResponseData) {
         viewState.stopAction()
     }
 }
