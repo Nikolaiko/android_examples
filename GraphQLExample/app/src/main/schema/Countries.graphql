@@ -1,0 +1,19 @@
+query CountiresByContinent($codeId: ID!) {
+  continent(code:$codeId) {
+    code
+    name
+    countries {
+      code
+      name
+      native
+      capital
+      currency
+      languages {
+        name
+      }
+      states {
+        name
+      }
+    }
+  }
+}

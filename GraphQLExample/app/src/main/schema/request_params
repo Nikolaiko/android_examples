@@ -1,0 +1,10 @@
+./gradlew downloadApolloSchema \
+  --endpoint="https://your.domain/graphql/endpoint" \
+  --schema="app/src/main/graphql/com/example/schema.json"
+
+
+
+  ./gradlew downloadApolloSchema \
+    --endpoint="https://your.domain/graphql/endpoint" \
+    --schema="app/src/main/graphql/com/example" \
+    --header="Authorization: Bearer $TOKEN"
