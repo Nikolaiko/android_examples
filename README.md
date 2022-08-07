@@ -6,3 +6,4 @@
 4. Базовый пример Crashlytics. [CrashlyticsExamples.](https://github.com/Nikolaiko/android_examples/tree/master/Crashlyticsexample)
 5. Базовый пример Google Maps. [GoogleMapExample.](https://github.com/Nikolaiko/android_examples/tree/master/GoogleMapExample)
 6. Базовый пример ExoPlayer для локальных файлов. [ExoPlayerExample.](https://github.com/Nikolaiko/android_examples/tree/master/ExoPlayerExample)
+7. Базовый пример старта Foreground Service после перезагрузки. [StartupServiceExample.](https://github.com/Nikolaiko/android_examples/tree/master/StartupServiceExample)
