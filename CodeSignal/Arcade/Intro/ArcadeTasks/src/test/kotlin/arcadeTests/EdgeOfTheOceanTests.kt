@@ -79,4 +79,12 @@ class EdgeOfTheOceanTests {
             edgeOfTheOcean.almostIncreasingSequence(almostIncreasingSequenceTestList5.toMutableList())
         )
     }
+
+    @Test
+    fun matrixElementsSumTest1() {
+        assertEquals(
+            9,
+            edgeOfTheOcean.matrixElementsSum(matrixElementsSumTest1)
+        )
+    }
 }

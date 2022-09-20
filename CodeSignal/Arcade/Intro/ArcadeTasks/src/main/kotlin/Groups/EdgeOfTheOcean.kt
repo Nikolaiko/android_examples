@@ -64,4 +64,20 @@ class EdgeOfTheOcean {
         }
         return true
     }
+
+    fun matrixElementsSum(matrix: MutableList<MutableList<Int>>): Int {
+        val height = matrix.size
+        val width = matrix.first().size
+        var summ = 0
+
+        for (column in 0 until width) {
+            for (row in 0 until height) {
+                when (matrix[row][column] > 0) {
+                    true -> summ += matrix[row][column]
+                    false -> break
+                }
+            }
+        }
+        return summ
+    }
 }
