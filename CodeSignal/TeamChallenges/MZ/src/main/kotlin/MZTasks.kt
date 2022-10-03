@@ -61,5 +61,26 @@ class MZTasks {
         return 0
     }
 
+    /*
+        You've just started constructing a military academy. It will take t seconds to erect the building, but given that you're in a hurry you decide this is too long to wait.
 
+        Fortunately, your Alliance offers you help to speed up construction - this is called a boost. Each member of the Alliance can decrease the time needed to finish the building either by 10% of the initial construction time or by 1 minute (whichever is greater). However, you can't get more than 10 boosts for a given construction project. Assuming that your Alliance members act optimally, find the shortest possible time it will take to build the academy.
+     */
+    fun allianceHelp(t: Int, allianceSize: Int): Int {
+        val shortTime = (t * 10) / 100
+        val decrease = when(shortTime > 60) {
+            true -> shortTime
+            false -> 60
+        }
+
+        val boostCount = when(allianceSize <= 10) {
+            true -> allianceSize
+            false -> 10
+        }
+
+        return when((t - decrease * boostCount) > 0) {
+            true -> t - decrease * boostCount
+            false -> 0
+        }
+    }
 }
