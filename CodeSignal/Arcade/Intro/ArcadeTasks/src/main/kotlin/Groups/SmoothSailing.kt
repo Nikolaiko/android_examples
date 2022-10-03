@@ -1,0 +1,4 @@
+package Groups
+
+class SmoothSailing {
+}
