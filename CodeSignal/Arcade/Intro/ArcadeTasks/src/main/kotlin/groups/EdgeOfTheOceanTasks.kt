@@ -1,4 +1,6 @@
-class EdgeOfTheOcean {
+package groups
+
+class EdgeOfTheOceanTasks {
     fun shapeArea(n: Int): Int {
         val result = when (n > 1) {
             true -> shapeArea(n - 1) + 4 + (n - 2) * 4

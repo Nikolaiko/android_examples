@@ -1,0 +1,48 @@
+package groups
+
+class SmoothSailing {
+    fun allLongestStrings(inputArray: MutableList<String>): MutableList<String> {
+        var maxLength = 0
+        for (curString in inputArray) {
+            if (curString.length > maxLength) {
+                maxLength = curString.length
+            }
+        }
+
+        return inputArray.filter { it.length == maxLength }.toMutableList()
+    }
+
+    fun commonCharacterCount(s1: String, s2: String): Int {
+        var (maxString, anotherString) = when(s1.length > s2.length) {
+            true -> Pair(s1, s2)
+            false -> Pair(s2, s1)
+        }
+
+        var commonCharsCount = 0
+        maxString.forEach {
+            if (anotherString.contains(it)) {
+                commonCharsCount += 1
+                val index = anotherString.indexOf(it)
+                anotherString = anotherString.removeRange(index, index + 1)
+            }
+        }
+        return commonCharsCount
+    }
+
+    fun isLucky(n: Int): Boolean {
+        val numberString = n.toString()
+        val firstPart = numberString.removeRange(0, numberString.length / 2)
+        val secondPart = numberString.removeRange(numberString.length / 2, numberString.length)
+
+        var leftPart = 0
+        firstPart.forEach {
+            leftPart += it.code
+        }
+
+        var rightPart = 0
+        secondPart.forEach {
+            rightPart += it.code
+        }
+        return rightPart == leftPart
+    }
+}
