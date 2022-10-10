@@ -45,4 +45,21 @@ class SmoothSailing {
         }
         return rightPart == leftPart
     }
+
+    fun sortByHeight(a: MutableList<Int>): MutableList<Int> {
+        val treeValue = -1
+        val peoples = a.filter { it != treeValue }.sorted().toMutableList()
+        val result = mutableListOf<Int>()
+        a.forEach {
+            when (it == treeValue) {
+                true -> result.add(it)
+                false -> result.add(peoples.removeFirst())
+            }
+        }
+        return result
+    }
+
+    fun reverseInParentheses(inputString: String): String {
+        
+    }
 }

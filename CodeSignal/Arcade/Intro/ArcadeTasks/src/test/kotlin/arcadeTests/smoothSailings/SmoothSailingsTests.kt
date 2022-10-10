@@ -39,4 +39,16 @@ class SmoothSailingsTests {
         assertTrue(sailing.isLucky(1230))
         assertFalse(sailing.isLucky(1235))
     }
+
+    @Test
+    fun sortByHeightTests() {
+        assertEquals(
+            mutableListOf(-1, 150, 160, 170, -1, -1, 180, 190),
+            sailing.sortByHeight(mutableListOf(-1, 150, 190, 170, -1, -1, 160, 180))
+        )
+        assertEquals(
+            mutableListOf(-1, -1, -1, -1, -1),
+            sailing.sortByHeight(mutableListOf(-1, -1, -1, -1, -1)),
+        )
+    }
 }
