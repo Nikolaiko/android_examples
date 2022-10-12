@@ -51,4 +51,12 @@ class SmoothSailingsTests {
             sailing.sortByHeight(mutableListOf(-1, -1, -1, -1, -1)),
         )
     }
+
+    @Test
+    fun reverseInParenthesesTests() {
+        assertEquals("rab", sailing.reverseInParentheses("(bar)"))
+        assertEquals("foorabbazmilb", sailing.reverseInParentheses("foo(bar)baz(blim)"))
+        assertEquals("foobazrabblim", sailing.reverseInParentheses("foo(bar(baz))blim"))
+    }
+
 }

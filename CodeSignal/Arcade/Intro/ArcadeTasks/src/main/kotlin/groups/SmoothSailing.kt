@@ -60,6 +60,27 @@ class SmoothSailing {
     }
 
     fun reverseInParentheses(inputString: String): String {
-        
+        var stringCopy = inputString
+        val openBraces = mutableListOf<Int>()
+        var index = 0
+
+        inputString.forEach {
+            if (it == '(') {
+                openBraces.add(index)
+            } else if (it == ')') {
+                val openBraceIndex = openBraces.removeLast()
+                val closeBraceIndex = index
+                var bracesString = stringCopy.substring(openBraceIndex + 1, closeBraceIndex)
+
+                bracesString = bracesString.reversed()
+                stringCopy = stringCopy.replaceRange(openBraceIndex + 1, closeBraceIndex, bracesString)
+            }
+            index += 1
+        }
+
+        stringCopy = stringCopy.replace(")", "")
+        stringCopy = stringCopy.replace("(", "")
+
+        return stringCopy
     }
 }
