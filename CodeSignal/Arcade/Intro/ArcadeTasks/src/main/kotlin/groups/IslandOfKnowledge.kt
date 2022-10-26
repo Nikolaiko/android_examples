@@ -25,4 +25,53 @@ class IslandOfKnowledge {
         }
         return maximumAdjacent
     }
+
+    fun isIPv4Address(inputString: String): Boolean {
+        val parts = inputString.split(".")
+        if (parts.size != 4) return false
+
+        parts.forEach {
+            val integer = it.toIntOrNull() ?: return false
+            if (integer > 255 || integer < 0) return false
+            if (integer < 10 && it.length > 1) return false
+        }
+        return true
+    }
+
+    fun avoidObstacles(inputArray: MutableList<Int>): Int =
+        (1..Int.MAX_VALUE).first { jump -> inputArray.all { it % jump != 0 } }
+
+    fun boxBlur(image: MutableList<MutableList<Int>>): MutableList<MutableList<Int>> {
+        val minRowIndex = 1
+        val minColumnIndex = 1
+
+        val maxRowIndex = image.first().size - 2
+        val maxColumnIndex = image.size - 2
+
+        val resultBlur = mutableListOf<MutableList<Int>>()
+
+        for (column in minColumnIndex..maxColumnIndex) {
+            val rowList = mutableListOf<Int>()
+            for (row in minRowIndex..maxRowIndex) {
+                var decent = image[column][row] + image[column][row + 1] + image[column][row - 1]
+                decent += image[column + 1][row]
+                decent += image[column + 1][row + 1]
+                decent += image[column + 1][row - 1]
+
+                decent += image[column - 1][row]
+                decent += image[column - 1][row + 1]
+                decent += image[column - 1][row - 1]
+
+                decent /= 9
+
+                rowList.add(decent)
+            }
+            resultBlur.add(rowList)
+        }
+        return resultBlur
+    }
+
+    fun minesweeper(matrix: MutableList<MutableList<Boolean>>): MutableList<MutableList<Int>> {
+        return mutableListOf()
+    }
 }
