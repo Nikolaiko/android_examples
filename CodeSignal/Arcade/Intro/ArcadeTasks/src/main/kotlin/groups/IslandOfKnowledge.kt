@@ -72,6 +72,46 @@ class IslandOfKnowledge {
     }
 
     fun minesweeper(matrix: MutableList<MutableList<Boolean>>): MutableList<MutableList<Int>> {
-        return mutableListOf()
+        val totalPole = mutableListOf<MutableList<Int>>()
+        for (column in matrix.indices) {
+            val rowPole = mutableListOf<Int>()
+            for (row in matrix[column].indices) {
+                var mines = try {
+                    if (matrix[column][row - 1]) 1 else 0
+                } catch (exception: java.lang.IndexOutOfBoundsException) { 0 }
+
+                mines += try {
+                    if (matrix[column][row + 1]) 1 else 0
+                } catch (exception: java.lang.IndexOutOfBoundsException) { 0 }
+
+                mines += try {
+                    if (matrix[column + 1][row]) 1 else 0
+                } catch (exception: java.lang.IndexOutOfBoundsException) { 0 }
+
+                mines += try {
+                    if (matrix[column - 1][row]) 1 else 0
+                } catch (exception: java.lang.IndexOutOfBoundsException) { 0 }
+
+                mines += try {
+                    if (matrix[column + 1][row - 1]) 1 else 0
+                } catch (exception: java.lang.IndexOutOfBoundsException) { 0 }
+
+                mines += try {
+                    if (matrix[column + 1][row + 1]) 1 else 0
+                } catch (exception: java.lang.IndexOutOfBoundsException) { 0 }
+
+                mines += try {
+                    if (matrix[column - 1][row - 1]) 1 else 0
+                } catch (exception: java.lang.IndexOutOfBoundsException) { 0 }
+
+                mines += try {
+                    if (matrix[column - 1][row + 1]) 1 else 0
+                } catch (exception: java.lang.IndexOutOfBoundsException) { 0 }
+
+                rowPole.add(mines)
+            }
+            totalPole.add(rowPole)
+        }
+        return totalPole
     }
 }
