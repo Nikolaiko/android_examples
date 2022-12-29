@@ -1,6 +1,6 @@
-package arcadeTests.exploringTheWaters
+package arcadeTests.intro.exploringTheWaters
 
-import groups.ExploringTheWaters
+import groups.intro.ExploringTheWaters
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import kotlin.test.assertEquals

@@ -1,4 +1,4 @@
-package groups
+package groups.intro
 
 class ExploringTheWaters {
     fun alternatingSums(a: MutableList<Int>): MutableList<Int> {

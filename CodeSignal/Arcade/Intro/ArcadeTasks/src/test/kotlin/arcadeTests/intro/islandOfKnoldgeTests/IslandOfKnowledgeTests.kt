@@ -1,6 +1,6 @@
-package arcadeTests.islandOfKnoldgeTests
+package arcadeTests.intro.islandOfKnoldgeTests
 
-import groups.IslandOfKnowledge
+import groups.intro.IslandOfKnowledge
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test

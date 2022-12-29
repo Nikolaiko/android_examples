@@ -1,4 +1,4 @@
-package groups
+package groups.intro
 
 class EdgeOfTheOceanTasks {
     fun shapeArea(n: Int): Int {

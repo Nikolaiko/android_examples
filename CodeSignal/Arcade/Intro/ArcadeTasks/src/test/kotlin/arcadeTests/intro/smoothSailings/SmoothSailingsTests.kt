@@ -1,6 +1,6 @@
-package arcadeTests.smoothSailings
+package arcadeTests.intro.smoothSailings
 
-import groups.SmoothSailing
+import groups.intro.SmoothSailing
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import kotlin.test.assertEquals

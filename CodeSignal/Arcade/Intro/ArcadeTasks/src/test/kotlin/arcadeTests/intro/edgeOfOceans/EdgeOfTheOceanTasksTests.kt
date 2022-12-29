@@ -1,6 +1,6 @@
-package arcadeTests.edgeOfOceans
+package arcadeTests.intro.edgeOfOceans
 
-import groups.EdgeOfTheOceanTasks
+import groups.intro.EdgeOfTheOceanTasks
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import kotlin.test.assertEquals

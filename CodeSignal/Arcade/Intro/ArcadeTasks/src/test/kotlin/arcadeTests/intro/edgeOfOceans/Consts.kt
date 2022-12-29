@@ -1,4 +1,4 @@
-package arcadeTests.edgeOfOceans
+package arcadeTests.intro.edgeOfOceans
 
 const val area2Value = 5
 const val area3Value = 13

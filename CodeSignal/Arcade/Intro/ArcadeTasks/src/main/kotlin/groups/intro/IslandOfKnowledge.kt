@@ -1,4 +1,4 @@
-package groups
+package groups.intro
 
 import kotlin.math.abs
 import kotlin.math.min

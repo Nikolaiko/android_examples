@@ -1,4 +1,4 @@
-package groups
+package groups.intro
 
 class SmoothSailing {
     fun allLongestStrings(inputArray: MutableList<String>): MutableList<String> {

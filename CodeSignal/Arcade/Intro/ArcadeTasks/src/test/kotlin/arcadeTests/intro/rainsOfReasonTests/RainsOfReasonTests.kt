@@ -1,6 +1,6 @@
-package arcadeTests.rainsOfReasonTests
+package arcadeTests.intro.rainsOfReasonTests
 
-import groups.RainsOfReason
+import groups.intro.RainsOfReason
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import kotlin.test.assertEquals
@@ -30,5 +30,16 @@ class RainsOfReasonTests {
         assertTrue(rains.variableName("var_1__Int"))
         assertTrue(rains.variableName("variable"))
         assertFalse(rains.variableName("a a_2"))
+    }
+
+    @Test
+    fun alphabeticShiftTest() {
+        assertEquals("dsbaz", rains.alphabeticShift("crazy"))
+    }
+
+    @Test
+    fun chessBoardCellColorTest() {
+        assertTrue(rains.chessBoardCellColor("A1", "C3"))
+        assertFalse(rains.chessBoardCellColor("A1", "H1"))
     }
 }
