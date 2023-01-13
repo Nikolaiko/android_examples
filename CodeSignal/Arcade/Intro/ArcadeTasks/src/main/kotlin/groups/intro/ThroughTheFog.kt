@@ -1,5 +1,6 @@
 package groups.intro
 
+import java.lang.Math.abs
 import kotlin.math.ceil
 import kotlin.math.log
 
@@ -17,14 +18,29 @@ class ThroughTheFog {
     }
 
     fun depositProfit(deposit: Int, rate: Int, threshold: Int): Int {
-//        var currentDeposit = deposit
-//        var yearsCount = 0
-//        do {
-//            currentDeposit += (currentDeposit * rate) / 100
-//            yearsCount += 1
-//        } while (currentDeposit < threshold)
         val percents: Double = rate.toDouble() / 100
         val differense: Double = threshold.toDouble() / deposit.toDouble()
         return ceil(log(differense, (1 + percents))).toInt()
+    }
+
+    fun absoluteValuesSumMinimization(a: MutableList<Int>): Int {
+        var minAbsSum = Int.MAX_VALUE
+        var result = Int.MAX_VALUE
+
+        a.forEach { currentValue: Int ->
+            val middle = a.fold(0) { acc, i ->
+                acc + kotlin.math.abs(i - currentValue)
+            }
+            when {
+                middle < minAbsSum ||
+                middle == minAbsSum && currentValue < result -> {
+                    minAbsSum = middle
+                    result = currentValue
+                }
+
+            }
+        }
+
+        return result
     }
 }

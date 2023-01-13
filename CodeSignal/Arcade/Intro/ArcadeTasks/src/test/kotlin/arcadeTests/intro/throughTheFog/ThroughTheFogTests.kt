@@ -22,4 +22,13 @@ class ThroughTheFogTests {
         assertEquals(3, fog.depositProfit(100, 20, 170))
         assertEquals(6, fog.depositProfit(1, 100, 64))
     }
+
+    @Test
+    fun absoluteValuesSumMinimizationTests() {
+        assertEquals(4, fog.absoluteValuesSumMinimization(mutableListOf(2, 4, 7)))
+        assertEquals(2, fog.absoluteValuesSumMinimization(mutableListOf(2, 3)))
+        assertEquals(0, fog.absoluteValuesSumMinimization(mutableListOf(
+            -1000000, -10000, -10000, -1000, -100, -10, -1, 0, 1, 10, 100, 1000, 10000, 100000, 1000000
+        )))
+    }
 }
