@@ -31,4 +31,10 @@ class ThroughTheFogTests {
             -1000000, -10000, -10000, -1000, -100, -10, -1, 0, 1, 10, 100, 1000, 10000, 100000, 1000000
         )))
     }
+
+    @Test
+    fun stringsRearrangementTests() {
+        assertEquals(false, fog.stringsRearrangement(mutableListOf("aba", "bbb", "bab")))
+        assertEquals(true, fog.stringsRearrangement(mutableListOf("zzzzab", "zzzzbb", "zzzzaa")))
+    }
 }

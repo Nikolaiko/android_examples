@@ -1,6 +1,5 @@
 package groups.intro
 
-import java.lang.Math.abs
 import kotlin.math.ceil
 import kotlin.math.log
 
@@ -19,8 +18,8 @@ class ThroughTheFog {
 
     fun depositProfit(deposit: Int, rate: Int, threshold: Int): Int {
         val percents: Double = rate.toDouble() / 100
-        val differense: Double = threshold.toDouble() / deposit.toDouble()
-        return ceil(log(differense, (1 + percents))).toInt()
+        val difference: Double = threshold.toDouble() / deposit.toDouble()
+        return ceil(log(difference, (1 + percents))).toInt()
     }
 
     fun absoluteValuesSumMinimization(a: MutableList<Int>): Int {
@@ -43,4 +42,45 @@ class ThroughTheFog {
 
         return result
     }
+
+    fun stringsRearrangement(inputArray: MutableList<String>): Boolean {
+        val starting = mutableListOf<String>()
+
+        inputArray.forEach { currentString: String ->
+            val haveNear = inputArray.any { differenceCount(currentString, it) == 1 }
+            if (haveNear) {
+                starting.add(currentString)
+            }
+        }
+
+        if (starting.isEmpty()) return false
+        starting.forEach {
+            val othersCopy = inputArray.toMutableList().apply { remove(it) }
+            if (checkStepForDifference(it, othersCopy)) return true
+        }
+        return false
+    }
+
+    private fun checkStepForDifference(currentStep: String, others: MutableList<String>): Boolean {
+        if (others.isEmpty()) return true
+
+        val nextStep = others.filter { differenceCount(currentStep, it) == 1 }
+        if (nextStep.isEmpty()) return false
+
+        nextStep.forEach {
+            val othersCopy = others.toMutableList().apply { remove(it) }
+            if (checkStepForDifference(it, othersCopy)) return true
+        }
+        return false
+    }
+
+    private fun differenceCount(s1: String, s2: String): Int {
+        if (s1.length != s2.length) return Int.MAX_VALUE
+        var difference = 0
+        for(i in s1.indices) {
+            if (s1[i] != s2[i]) difference += 1
+        }
+        return difference
+    }
+
 }
