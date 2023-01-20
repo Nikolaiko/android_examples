@@ -17,4 +17,30 @@ class DivingDeeper {
         }
         return inputArray
     }
+
+    fun firstDigit(inputString: String): Char {
+        return inputString.first { it.isDigit() }
+    }
+
+    fun differentSymbolsNaive(s: String): Int {
+        val symbols = mutableMapOf<Char, Int>()
+        s.forEach {
+            if (!symbols.containsKey(it)) {
+                symbols[it] = 1
+            }
+        }
+        return symbols.size
+    }
+
+    fun arrayMaxConsecutiveSum(inputArray: MutableList<Int>, k: Int): Int {
+        var max = Int.MIN_VALUE
+
+        for (i in 0..inputArray.size - k) {
+            val sum = inputArray.subList(i, i + k).sum()
+            if (sum > max) {
+                max = sum
+            }
+        }
+        return max
+    }
 }
