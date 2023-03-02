@@ -8,3 +8,5 @@
 6. Базовый пример ExoPlayer для локальных файлов. [ExoPlayerExample.](https://github.com/Nikolaiko/android_examples/tree/master/ExoPlayerExample)
 7. Базовый пример старта Foreground Service после перезагрузки. [StartupServiceExample.](https://github.com/Nikolaiko/android_examples/tree/master/StartupServiceExample)
 8. [Задачки](https://github.com/Nikolaiko/android_examples/tree/master/CodeSignal) с сайта [Code Signal](https://codesignal.com/)
+9. [JetPackDatePicker, пример встраивания DatePicker в Compose (возможно уже не актуально)](https://github.com/Nikolaiko/android_examples/tree/master/JetpackDatePicker)
+10. [GrpcExample, пример реализации grpc протокола для Android](https://github.com/Nikolaiko/android_examples/tree/master/GrpcExample)
